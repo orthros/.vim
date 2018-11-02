@@ -1,9 +1,7 @@
 XDG_CONFIG_HOME := $(HOME)/.config
-VIM_HOME := $(PWD)
 
 .PHONY: install
 install: ## Sets up symlink for user and root .vimrc for vim and neovim.
-	ln -snf "$(VIM_HOME)" "$(HOME)/.vim"
 	ln -snf "$(HOME)/.vim/vimrc" "$(HOME)/.vimrc"
 	mkdir -p "$(XDG_CONFIG_HOME)"
 	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim"
