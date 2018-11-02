@@ -249,8 +249,8 @@ nnoremap <leader>a :cclose<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Buffer prev/next
-nnoremap <C-x> :bnext<CR>
-nnoremap <C-z> :bprev<CR>
+nnoremap <C-s> :bnext<CR>
+nnoremap <C-a> :bprev<CR>
 
 " Better split switching
 map <C-j> <C-W>j
