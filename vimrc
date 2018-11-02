@@ -30,6 +30,8 @@ set noswapfile
 set backspace=indent,eol,start "Allow backspacing over everything in insert mode
 set autoread      " If a file is changed outside of vim, automatically reload it witout asking
 
+let g:vim_markdown_folding_disabled = 1 " Disable code folding for Markdown Files
+
 
 "-------------------------------------------------------------
 "  Mappings
