@@ -1,12 +1,20 @@
 # .vim
 My .vim dotfiles and configurations
 
-To use this run 
+## Dependencies
+Make sure you have the following installed:
 
-```
-git clone --recursive https://github.com/orthros/.vim.git vim
-cd vim
-make install
+* vim (of course!)
+* make (to do the install)
+* git (for the submodules)
+* curl 
+
+To use these run:
+
+```bash
+$ git clone --recursive https://github.com/orthros/.vim.git vim
+$ cd vim
+$ make install
 ```
 
 This will create symlinks in the appropriate directories!
