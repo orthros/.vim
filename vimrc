@@ -519,8 +519,7 @@ let g:vim_json_syntax_conceal = 0
 " use deoplete for Neovim.
 if has('nvim')
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#ignore_sources = {}
-  let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
+  call deoplete#custom#option('ignore_sources', {'_': ['buffer', 'member', 'tag', 'file', 'neosnippet']})
   let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
   let g:deoplete#sources#go#align_class = 1
 
@@ -607,4 +606,4 @@ let g:rust_clip_command = 'xclip -selection clipboard'
 " Run terraform fmt on save.
 let g:terraform_fmt_on_save=1
 
-" vim:ts=2:sw=2:et/
+" vim:ts=2:sw=2:et
