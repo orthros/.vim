@@ -2,7 +2,13 @@ return {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" },
+        globals = {
+          "awesome", -- awesomewm
+          "client", -- awesomewm
+          "screen", -- awesomewm
+          "root", -- awesomewm
+          "vim" -- Vim files
+        },
       },
       workspace = {
         library = {
