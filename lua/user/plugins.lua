@@ -77,7 +77,8 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-  -- use 'nvim-telescope/telescope-media-files.nvim' -- Preview media files with :Telescope media_files. Requires Linux and other things
+  -- Requires uberzug installed
+  use 'nvim-telescope/telescope-media-files.nvim' -- Preview media files with :Telescope media_files. Requires Linux and other things
 
   -- Treesitter  --> Fancy syntax highlighting
   use {

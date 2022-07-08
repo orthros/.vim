@@ -3,8 +3,6 @@ if not status_ok then
   return
 end
 
--- Requries the media-files extension... only available on linux
--- telescope.load_extension('media_files')
 
 local actions = require "telescope.actions"
 
@@ -91,12 +89,13 @@ telescope.setup {
   },
   extensions = {
     -- Requires the telescope-media-files extension.
-    --media_files = {
-    --    -- filetypes whitelist
-    --    -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-    --    filetypes = {"png", "webp", "jpg", "jpeg"},
-    --    find_cmd = "rg" -- find command (defaults to `fd`)
-    --  }
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = { "png", "webp", "jpg", "jpeg" },
+      -- Suggested fdfind or rg
+      find_cmd = "fdfind" -- find command (defaults to `fd`)
+    }
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -104,3 +103,6 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+-- Requries the media-files extension... only available on linux
+telescope.load_extension('media_files')
