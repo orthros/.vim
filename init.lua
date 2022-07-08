@@ -12,3 +12,11 @@ require "user.gitsigns"
 require "user.nvim-tree"
 require "user.bufferline"
 require "user.lualine"
+
+-- Last thing... if we have a ~/.config/corp/vimrc-corp file, then
+-- we should source it (we're probably on a corp machine).
+vim.cmd [[
+  if filereadable(expand('~/.config/corp/vimrc-corp'))
+    source ~/.config/corp/vimrc-corp
+  endif
+]]
