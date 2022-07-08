@@ -1,19 +1,4 @@
-local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
-
-lspconfig.gopls.setup {
-  cmd = { "gopls", "serve" },
-  filetypes = { "go", "gomod" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      analyses = {
-        -- unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
-}
 
 function OrgImports(wait_ms)
   local params = vim.lsp.util.make_range_params()
@@ -33,3 +18,17 @@ end
 vim.cmd [[
   autocmd BufWritePre *.go lua OrgImports(1000)
 ]]
+
+return {
+  cmd = { "gopls", "serve" },
+  filetypes = { "go", "gomod" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      -- staticcheck = true,
+    },
+  },
+}
