@@ -82,8 +82,8 @@ return packer.startup(function(use)
 
   -- Treesitter  --> Fancy syntax highlighting
   use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
   }
 
   -- Git

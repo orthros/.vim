@@ -1,9 +1,18 @@
 local colorscheme = "tokyonight"
 
-vim.g.tokyonight_style = "night"
--- Colorsheme transparency
-vim.g.tokyonight_transparent = true
-vim.g.tokyonight_transparent_sidebar = true
+local status_ok, tokyonight = pcall(require, "tokyonight")
+if not status_ok then
+  vim.notify("Could not require tokyonight")
+  return
+end
+
+tokyonight.setup({
+  style = "night",
+  transparent = true,
+  styles = {
+    sidebars = "transparent",
+  },
+})
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
