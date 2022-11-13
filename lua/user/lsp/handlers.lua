@@ -95,7 +95,8 @@ M.on_attach = function(client, bufnr)
       buffer = bufnr,
       callback = function()
         -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-        vim.lsp.buf.formatting_sync()
+        -- vim.lsp.buf.formatting_sync()
+        vim.lsp.buf.format({ bufnr = bufnr })
       end,
     })
   end
@@ -109,6 +110,6 @@ if not status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M
