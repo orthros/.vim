@@ -48,7 +48,10 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Quickly comment things out with gcc in normal mode and gc in Visual mode
   use 'kyazdani42/nvim-web-devicons' -- Nice icons to view things
-  use 'kyazdani42/nvim-tree.lua' -- Tree view of the workspace
+  use {
+    'kyazdani42/nvim-tree.lua', -- Tree view of the workspace
+    commit = "949913f1860eb85024fa1967dbd89ac797777b0d" -- Last commit to support nvim 0.7
+  }
   use "akinsho/bufferline.nvim" -- Buffers
   use "moll/vim-bbye" -- Quitting buffers quickly
   use 'nvim-lualine/lualine.nvim' -- Powreline
@@ -88,7 +91,10 @@ return packer.startup(function(use)
   }
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
+  use {
+    "lewis6991/gitsigns.nvim",
+    tag = "v0.6", -- Last release to support nvim 0.7
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
