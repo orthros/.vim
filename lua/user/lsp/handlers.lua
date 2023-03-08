@@ -94,9 +94,15 @@ M.on_attach = function(client, bufnr)
       group = augroup,
       buffer = bufnr,
       callback = function()
-        -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-        -- vim.lsp.buf.formatting_sync()
-        vim.lsp.buf.format({ bufnr = bufnr })
+        local version_info = vim.version()
+        -- TODO(orthros): Make this a little more elegant or make all versions
+        -- of neovim at least 0.8
+        if (version_info.major == 0 and version_info.minor < 8) then
+          vim.lsp.buf.formatting_sync()
+        else
+          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end
       end,
     })
   end
