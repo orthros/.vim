@@ -54,7 +54,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]] ,
+    ]],
       false
     )
   end
@@ -81,7 +81,7 @@ local function lsp_keymaps(bufnr)
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]]
 end
 
 M.on_attach = function(client, bufnr)
@@ -94,15 +94,7 @@ M.on_attach = function(client, bufnr)
       group = augroup,
       buffer = bufnr,
       callback = function()
-        local version_info = vim.version()
-        -- TODO(orthros): Make this a little more elegant or make all versions
-        -- of neovim at least 0.8
-        if (version_info.major == 0 and version_info.minor < 8) then
-          vim.lsp.buf.formatting_sync()
-        else
-          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-          vim.lsp.buf.format({ bufnr = bufnr })
-        end
+        vim.lsp.buf.format({ bufnr = bufnr })
       end,
     })
   end
