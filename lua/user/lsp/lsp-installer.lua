@@ -36,8 +36,9 @@ lspconfig.jsonls.setup(vim.tbl_deep_extend("force", jsonls_opts, opts))
 local gopls_opts = require("user.lsp.settings.gopls")
 lspconfig.gopls.setup(vim.tbl_deep_extend("force", gopls_opts, opts))
 
-local rust_analyzer_opts = require("user.lsp.settings.rust_analyzer")
-lspconfig.rust_analyzer.setup(vim.tbl_deep_extend("force", rust_analyzer_opts, opts))
+-- Disabling rust_analyzer in favor of rustaceanvim
+-- local rust_analyzer_opts = require("user.lsp.settings.rust_analyzer")
+-- lspconfig.rust_analyzer.setup(vim.tbl_deep_extend("force", rust_analyzer_opts, opts))
 
 local pyright_opts = require("user.lsp.settings.pyright")
 lspconfig.pyright.setup(vim.tbl_deep_extend("force", pyright_opts, opts))
